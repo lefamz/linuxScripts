@@ -1,0 +1,5 @@
+tar -c --use-compress-program=pigz -f archiv.tar.gz directory
+
+tar -I pigz -cf test.tar.gz *
+
+tar -I pigz -xf test.tar.gz
