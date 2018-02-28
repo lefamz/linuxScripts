@@ -1,12 +1,14 @@
 #!/bin/bash
 
+# Scripts that kills application, which is passed as argument.
+
 appName=$1
 
-processes=`ps axu | awk '/'$appName'/ {print $2}'`
+p=`pidof $appName`
 
-echo $processes
-
-for i in $processes; do
-	echo "Killing PID: " $i
-	kill $i
+# while is that son of a b.. running, kill it's process!
+while [[ ! -z $p ]]; do
+	kill $p
+	p=`pidof $appName`
 done
+
