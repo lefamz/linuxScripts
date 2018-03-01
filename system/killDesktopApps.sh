@@ -1,11 +1,14 @@
 #!/bin/bash
 
-#killall chromium
-killall opera
-killall spotify
-killall thunderbird
-killall synology-note-station
+apps="opera spotify thunderbird synology-note-station qbittorrent"
 
-if [[ ! -z `pidof qbittorrent` ]]; then
-	killApp.sh qbittorrent
-fi
+function killthat(){
+	if [[ ! -z `pidof $1` ]]; then
+		echo Killing: $1
+		killApp.sh $1
+	fi
+}
+
+for i in $apps; do
+	killthat $i
+done
