@@ -1,6 +1,7 @@
 #!/bin/bash
 
-apps="opera spotify thunderbird synology-note-station qbittorrent"
+deluge="/usr/bin/python2 /usr/bin/deluge-gtk"
+apps=" chromium opera spotify thunderbird synology-note-station qbittorrent $deluge steam"
 
 function killthat(){
 	if [[ ! -z `pidof $1` ]]; then
