@@ -32,10 +32,10 @@ fi
 
 if [[ $op == "tf" ]]; then
 	echo "Grabbing device $device to file $file"
-	dd if=$device conv=sync status=progress | gzip -c  > $file
+	dd if=$device conv=fsync status=progress | gzip -c  > $file
 fi
 
 if [[ $op == "td" ]]; then
-	echo "Burning file $file to device $device"
+	echo "Burning file $file to device $device with bs $blockSize"
 	gunzip -c $file | dd of=$device status=progress bs=$blockSize conv=fsync
 fi
