@@ -1,6 +1,6 @@
 #!/bin/bash
 
-apps="chromium spotify thunderbird synology-note-station teamviewer"
+apps="firefox spotify thunderbird synology-note-station teamviewer"
 
 function startTorGuard(){
 	sudo torguard >> /dev/null 2>&1 &
