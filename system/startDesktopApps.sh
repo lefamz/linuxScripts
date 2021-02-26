@@ -1,6 +1,6 @@
 #!/bin/bash
 
-apps="firefox spotify thunderbird synology-note-station"
+apps="firefox thunderbird synology-note-station"
 
 function startTorGuard(){
 	sudo torguard >> /dev/null 2>&1 &
