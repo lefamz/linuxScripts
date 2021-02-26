@@ -1,6 +1,6 @@
 #!/bin/bash
 
-apps="firefox spotify thunderbird synology-note-station teamviewer"
+apps="firefox spotify thunderbird synology-note-station"
 
 function startTorGuard(){
 	sudo torguard >> /dev/null 2>&1 &
@@ -16,8 +16,14 @@ function startInSilence(){
 	$1 >> /dev/null 2>&1 &
 }
 
-startXscreensaver
-startTorGuard
+function startTidal(){
+    tidal="firefox -new-window https://listen.tidal.com"
+    startInSilence $tidal
+}
+
+#startXscreensaver
+#startTorGuard
+startTidal
 for i in $apps; do
 	startInSilence $i
 done
