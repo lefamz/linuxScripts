@@ -1,6 +1,6 @@
 #!/bin/bash
 
-apps="firefox thunderbird synology-note-station"
+apps="firefox thunderbird"
 
 function startTorGuard(){
 	sudo torguard >> /dev/null 2>&1 &
@@ -22,8 +22,7 @@ function startTidal(){
 }
 
 #startXscreensaver
-#startTorGuard
-startTidal
+startTorGuard
 for i in $apps; do
 	startInSilence $i
 done
